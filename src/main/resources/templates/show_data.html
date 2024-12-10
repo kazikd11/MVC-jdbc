@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Pokazane dane</title>
+</head>
+<body>
+<h1>Lista danych</h1>
+
+<table id="data-table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nazwa</th>
+        <th>Wysokość</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterowanie po liście danych wstrzykniętej z kontrolera -->
+    <tr th:each="item : ${dataList}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.height}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<a href="/">Powrót na stronę główną</a>
+</body>
+</html>
