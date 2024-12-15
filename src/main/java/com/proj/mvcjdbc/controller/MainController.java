@@ -24,7 +24,7 @@ public class MainController {
     public String showDataPage(Model model) {
         List<Data> dataList = getData();
         model.addAttribute("dataList", dataList);
-        return "show_data";
+        return "show_peaks";
     }
 
     private List<Data> getData() {

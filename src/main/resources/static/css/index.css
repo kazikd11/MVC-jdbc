@@ -1,0 +1,51 @@
+:root{
+    --primary-color: orange;
+    --secondary-color: #333;
+    --tertiary-color: antiquewhite;
+}
+
+html, body{
+    height: 100%;
+}
+
+.main-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: var(--tertiary-color);
+    padding: 10px;
+}
+
+.show-buttons{
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+}
+
+.container{
+margin:10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.map-container{
+    display: flex;
+    align-items: center;
+}
+
+img{
+    max-width: 100%;
+}
