@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <title>Pokazane dane</title>
-</head>
-<body>
-<h1>Lista danych</h1>
-
-<table id="data-table">
+<table id="peaks-table">
     <thead>
     <tr>
         <th>ID</th>
@@ -15,14 +7,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="item : ${dataList}">
-        <td th:text="${item.id}"></td>
-        <td th:text="${item.name}"></td>
-        <td th:text="${item.height}"></td>
+    <tr th:each="data : ${dataList}">
+        <td th:text="${data.id}"></td>
+        <td th:text="${data.name}"></td>
+        <td th:text="${data.height}"></td>
     </tr>
     </tbody>
 </table>
-
-<a href="/">Powrót na stronę główną</a>
-</body>
-</html>

@@ -1,13 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const showDataBtn = document.getElementById("showDataBtn");
-    const dataContainer = document.getElementById("data-container");
+    const showPeaksBtn = document.getElementById("showPeaks");
+    const peaksContainer = document.getElementById("peaks-table");
+    const showSheltersBtn = document.getElementById("showShelters");
+    const sheltersContainer = document.getElementById("shelters-table");
 
-    if (showDataBtn) {
-        showDataBtn.addEventListener("click", function () {
-            fetch("/showData")
+
+    if (showPeaksBtn) {
+        showPeaksBtn.addEventListener("click", function () {
+            fetch("/showPeaks")
                 .then(response => response.text())
                 .then(data => {
-                    dataContainer.innerHTML = data;
+                    peaksContainer.innerHTML = data;
+                })
+                .catch(e => {
+                    console.log(e);
+                });
+        });
+    }
+
+    if (showSheltersBtn) {
+        showSheltersBtn.addEventListener("click", function () {
+            fetch("/showShelters")
+                .then(response => response.text())
+                .then(data => {
+                    sheltersContainer.innerHTML = data;
                 })
                 .catch(e => {
                     console.log(e);

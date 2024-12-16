@@ -1,11 +1,15 @@
 package com.proj.mvcjdbc.controller;
 
+import com.proj.mvcjdbc.model.Peak;
+import com.proj.mvcjdbc.model.Shelter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
-import java.util.Arrays;
+
+import static com.proj.mvcjdbc.service.GetPoints.getPeaks;
+import static com.proj.mvcjdbc.service.GetPoints.getShelters;
 
 @Controller
 public class MainController {
@@ -20,20 +24,20 @@ public class MainController {
         return "add_data";
     }
 
-    @GetMapping("/showData")
-    public String showDataPage(Model model) {
-        List<Data> dataList = getData();
+    @GetMapping("/showPeaks")
+    public String showPeaks(Model model) {
+        List<Peak> dataList = getPeaks();
         model.addAttribute("dataList", dataList);
+        System.out.println("Data list: " + dataList);
         return "show_peaks";
     }
 
-    private List<Data> getData() {
-        return Arrays.asList(
-                new Data(1, "Giewont", 1894),
-                new Data(2, "Rysy", 2499)
-        );
+    @GetMapping("/showShelters")
+    public String showShelters(Model model) {
+        List<Shelter> dataList = getShelters();
+        model.addAttribute("dataList", dataList);
+        System.out.println("Data list: " + dataList);
+        return "show_shelters";
     }
-
-    public record Data(int id, String name, int height) {}
 
 }
