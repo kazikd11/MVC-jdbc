@@ -16,9 +16,8 @@ html, body {
 }
 
 .main-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    height: 100%; /* Gwarantuje pełną wysokość strony */
+    display: flex;
+    height: 100%;
 }
 
 nav {
@@ -47,7 +46,7 @@ button {
 }
 
 button:hover {
-    border-color:var(--tertiary-color);
+    border-color: var(--tertiary-color);
 }
 
 .container {
@@ -57,9 +56,11 @@ button:hover {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    min-width: 300px;
 }
 
-.map {
+
+.map-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,7 +68,12 @@ button:hover {
 
 img {
     max-width: 90%;
-    height: auto;
 }
 
+.resizer {
+    background: var(--secondary-color);
+    width: 3px;
+    cursor: ew-resize;
+    height: 100%;
+}
 
