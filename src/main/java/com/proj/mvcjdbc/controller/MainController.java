@@ -1,7 +1,7 @@
 package com.proj.mvcjdbc.controller;
 
-import com.proj.mvcjdbc.model.Peak;
-import com.proj.mvcjdbc.model.Shelter;
+import com.proj.mvcjdbc.model.mvc.Peak;
+import com.proj.mvcjdbc.model.mvc.Shelter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
