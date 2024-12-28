@@ -11,35 +11,38 @@ import java.util.List;
 import java.util.Objects;
 
 @Repository
-public class PointsRepository {
+public class GetPointsRepository {
     private final JdbcTemplate jdbcTemplate;
 
+    private final String query1;
+    private final String query2;
+    private final String query3;
+
     @Autowired
-    public PointsRepository(JdbcTemplate jdbcTemplate) {
+    public GetPointsRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+        this.query1 = loadQuery("/sql/select_peaks.sql");
+        this.query2 = loadQuery("/sql/select_user_shelter.sql");
+        this.query3 = loadQuery("/sql/select_admin_shelter.sql");
+    }
+
+    private String loadQuery(String resourcePath) {
+        try {
+            return new String(Objects.requireNonNull(this.getClass().getResourceAsStream(resourcePath)).readAllBytes());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return "";
+        }
     }
 
     public List<Peak> getPeaks() {
-        String query;
-        try {
-            query = new String(Objects.requireNonNull(this.getClass().getResourceAsStream("/sql/select_peaks.sql")).readAllBytes());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return Collections.emptyList();
-        }
-        return jdbcTemplate.query(query, (rs, rowNum) -> new Peak(rs.getInt("id"), rs.getString("name"), rs.getInt("height")));
+        return jdbcTemplate.query(query1, (rs, rowNum) ->
+                new Peak(rs.getInt("id"), rs.getString("name"), rs.getInt("height"))
+        );
     }
 
     public List<Shelter> getUserShelter() {
-        String query;
-        try{
-            query = new String(Objects.requireNonNull(this.getClass().getResourceAsStream("/sql/select_user_shelter.sql")).readAllBytes());
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-            return Collections.emptyList();
-        }
-        return jdbcTemplate.query(query, (rs, rowNum) ->
+        return jdbcTemplate.query(query2, (rs, rowNum) ->
                 new Shelter(
                         rs.getInt("id"),
                         rs.getString("name"),
@@ -51,15 +54,7 @@ public class PointsRepository {
     }
 
     public List<Shelter> getAdminShelter() {
-        String query;
-        try{
-            query = new String(Objects.requireNonNull(this.getClass().getResourceAsStream("/sql/select_admin_shelter.sql")).readAllBytes());
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-            return Collections.emptyList();
-        }
-        return jdbcTemplate.query(query, (rs, rowNum) ->
+        return jdbcTemplate.query(query3, (rs, rowNum) ->
                 new Shelter(
                         rs.getInt("id"),
                         rs.getString("name"),
