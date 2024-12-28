@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
+
+import static com.proj.mvcjdbc.repository.Util.loadQuery;
 
 @Repository
 public class GetPointsRepository {
@@ -24,15 +24,6 @@ public class GetPointsRepository {
         this.query1 = loadQuery("/sql/select_peaks.sql");
         this.query2 = loadQuery("/sql/select_user_shelter.sql");
         this.query3 = loadQuery("/sql/select_admin_shelter.sql");
-    }
-
-    private String loadQuery(String resourcePath) {
-        try {
-            return new String(Objects.requireNonNull(this.getClass().getResourceAsStream(resourcePath)).readAllBytes());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return "";
-        }
     }
 
     public List<Peak> getPeaks() {

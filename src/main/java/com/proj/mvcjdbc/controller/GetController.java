@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Controller
-public class MainController {
+public class GetController {
 
     final PointsGetService pointsGetService;
 
     @Autowired
-    public MainController(PointsGetService pointsGetService) {
+    public GetController(PointsGetService pointsGetService) {
         this.pointsGetService = pointsGetService;
     }
 
@@ -25,9 +25,9 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/addData")
-    public String showAddDataForm() {
-        return "add_data";
+    @GetMapping("/adminPage")
+    public String showAdminPage() {
+        return "admin_page";
     }
 
     @GetMapping("/showPeaks")
