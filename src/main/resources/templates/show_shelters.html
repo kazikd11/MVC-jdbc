@@ -3,14 +3,22 @@
     <tr>
         <th>ID</th>
         <th>Nazwa</th>
-        <th>Wysokość</th>
+        <th>Phone</th>
+        <th th:if="${shelters[0].internalPhone != null}">Internal Phone</th>
+        <th>Email</th>
+        <th th:if="${shelters[0].owner != null}">Owner</th>
+        <th>Status</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="data : ${dataList}">
-        <td th:text="${data.id}"></td>
-        <td th:text="${data.name}"></td>
-        <td th:text="${data.height}"></td>
+    <tr th:each="shelter : ${shelters}">
+        <td th:text="${shelter.id}"></td>
+        <td th:text="${shelter.name}"></td>
+        <td th:text="${shelter.phone}"></td>
+        <td th:if="${shelter.internalPhone != null}" th:text="${shelter.internalPhone}"></td>
+        <td th:text="${shelter.email}"></td>
+        <td th:if="${shelter.owner != null}" th:text="${shelter.owner}"></td>
+        <td th:text="${shelter.status ? 'Active' : 'Inactive'}"></td>
     </tr>
     </tbody>
 </table>

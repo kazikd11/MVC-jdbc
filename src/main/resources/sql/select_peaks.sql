@@ -1,1 +1,1 @@
-SELECT id, name, height FROM peaks;
+SELECT * FROM peaks;
