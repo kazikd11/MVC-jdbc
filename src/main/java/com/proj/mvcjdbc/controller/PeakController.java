@@ -17,13 +17,13 @@ public class PeakController {
         peakService.addPeak(peak);
     }
 
-    @PutMapping("/{id}")
-    public void updatePeak(@PathVariable int id, @RequestBody Peak peak) {
+    @PutMapping
+    public void updatePeak(@RequestParam int id, @RequestBody Peak peak) {
         peakService.updatePeak(id, peak);
     }
 
-    @DeleteMapping("/{id}")
-    public void deletePeak(@PathVariable int id) {
+    @DeleteMapping
+    public void deletePeak(@RequestParam int id) {
         peakService.deletePeak(id);
     }
 }
