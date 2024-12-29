@@ -1,21 +1,104 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>Dodaj dane</title>
+    <meta charset="UTF-8">
+    <title>Admin Page</title>
+    <link rel="stylesheet" th:href="@{/css/admin_page.css}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script th:src="@{/js/admin_page.js}"></script>
 </head>
 <body>
-<h1>Dodaj dane do bazy</h1>
+<h1>Admin Panel</h1>
 
-<form action="#" method="post" th:action="@{/add-data}">
-    <label for="name">Nazwa:</label>
-    <input type="text" id="name" name="name" required />
+<section id="shelters">
+    <h2>Manage Shelters</h2>
 
-    <label for="height">Wysokość:</label>
-    <input type="number" id="height" name="height" required />
+    <form id="add-shelter-form" action="/api/shelters}" method="post">
+        <h3>Add Shelter</h3>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="phone" placeholder="Phone" required>
+        <input type="text" name="internalPhone" placeholder="Internal Phone">
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="owner" placeholder="Owner">
+        <input type="checkbox" name="status"> Active
+        <button type="submit">Add Shelter</button>
+    </form>
 
-    <button type="submit">Dodaj</button>
-</form>
+    <form id="update-shelter-form" action="/api/shelters" method="put">
+        <h3>Update Shelter</h3>
+        <input type="number" name="id" placeholder="Shelter ID" required>
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="phone" placeholder="Phone">
+        <input type="text" name="internalPhone" placeholder="Internal Phone">
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="owner" placeholder="Owner">
+        <input type="checkbox" name="status"> Active
+        <button type="submit">Update Shelter</button>
+    </form>
 
-<a href="/">Powrót na stronę główną</a>
+    <form id="delete-shelter-form" action="/api/shelters" method="delete">
+        <h3>Delete Shelter</h3>
+        <input type="number" name="id" placeholder="Shelter ID" required>
+        <button type="submit">Delete Shelter</button>
+    </form>
+</section>
+
+<section id="peaks">
+    <h2>Manage Peaks</h2>
+
+    <form id="add-peak-form" action="/api/peaks" method="post">
+        <h3>Add Peak</h3>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="number" name="height" placeholder="Height" required>
+        <button type="submit">Add Peak</button>
+    </form>
+
+    <form id="update-peak-form" action="/api/peaks" method="put">
+        <h3>Update Peak</h3>
+        <input type="number" name="id" placeholder="Peak ID" required>
+        <input type="text" name="name" placeholder="Name">
+        <input type="number" name="height" placeholder="Height">
+        <input type="text" name="description" placeholder="Description">
+        <button type="submit">Update Peak</button>
+    </form>
+
+    <form id="delete-peak-form" action="/api/peaks" method="delete">
+        <h3>Delete Peak</h3>
+        <input type="number" name="id" placeholder="Peak ID" required>
+        <button type="submit">Delete Peak</button>
+    </form>
+</section>
+
+<section id="trail-points">
+    <h2>Manage Trail Points</h2>
+
+    <form id="add-trail-point-form" action="/api/trail_points" method="post">
+        <h3>Add Trail Point</h3>
+        <input type="number" name="point1Id" placeholder="Point 1 ID" required>
+        <input type="number" name="point2Id" placeholder="Point 2 ID" required>
+        <input type="number" name="trailId" placeholder="Trail ID" required>
+        <input type="number" name="ascendTime" placeholder="Ascend Time" required>
+        <input type="text" name="color" placeholder="Color">
+        <button type="submit">Add Trail Point</button>
+    </form>
+
+    <form id="update-trail-point-form" action="/api/trail_points" method="patch">
+        <h3>Update Trail Point</h3>
+        <input type="number" name="point1Id" placeholder="Point 1 ID" required>
+        <input type="number" name="point2Id" placeholder="Point 2 ID" required>
+        <input type="number" name="trailId" placeholder="Trail ID">
+        <input type="number" name="ascendTime" placeholder="Ascend Time">
+        <input type="number" name="descendTime" placeholder="Descend Time">
+        <input type="text" name="color" placeholder="Color">
+        <button type="submit">Update Trail Point</button>
+    </form>
+
+    <form id="delete-trail-point-form" action="/api/trail_points" method="delete">
+        <h3>Delete Trail Point</h3>
+        <input type="number" name="point1Id" placeholder="Point 1 ID" required>
+        <input type="number" name="point2Id" placeholder="Point 2 ID" required>
+        <button type="submit">Delete Trail Point</button>
+    </form>
+</section>
 </body>
 </html>
