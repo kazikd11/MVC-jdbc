@@ -13,10 +13,12 @@ VALUES
 INSERT INTO trail_points (point1_id, point2_id, trail_id, travel_time, color)
 VALUES
     (1, 2, 1, 20, 'red'),
-    (2, 3, 1, 15, 'blue'),
-    (3, 4, 1, 25, 'green'),
-    (1, 3, 1, 50, 'yellow'),
+    (2, 3, 1, 20, 'red'),
+    (2, 3, 1, 20, 'red'),
+    (2, 3, 2, 15, 'blue'),
+    (3, 4, 3, 25, 'green'),
+    (1, 3, 4, 50, 'yellow'),
     (2, 1, 1, 30, 'red'),
-    (3, 2, 1, 15, 'blue'),
-    (4, 3, 1, 25, 'green'),
-    (3, 1, 1, 50, 'yellow');
+    (3, 2, 2, 15, 'blue'),
+    (4, 3, 3, 25, 'green'),
+    (3, 1, 4, 50, 'yellow');

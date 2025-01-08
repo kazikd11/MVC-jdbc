@@ -28,7 +28,6 @@ CREATE TABLE trail_points (
     trail_id INT,
     travel_time INT,
     color VARCHAR(255),
-    PRIMARY KEY (point1_id, point2_id),
     CONSTRAINT fk_point1 FOREIGN KEY (point1_id) REFERENCES points(id),
     CONSTRAINT fk_point2 FOREIGN KEY (point2_id) REFERENCES points(id)
 );

@@ -7,7 +7,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="data : ${dataList}">
+    <tr th:each="data : ${dataList}" class="table-row" data-id="${data.id}">
         <td th:text="${data.id}"></td>
         <td th:text="${data.name}"></td>
         <td th:text="${data.height}"></td>

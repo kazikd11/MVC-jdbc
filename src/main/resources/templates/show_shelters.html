@@ -11,7 +11,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="shelter : ${shelters}">
+    <tr th:each="shelter : ${shelters}" class="table-row" data-id="${data.id}">
         <td th:text="${shelter.id}"></td>
         <td th:text="${shelter.name}"></td>
         <td th:text="${shelter.phone}"></td>
