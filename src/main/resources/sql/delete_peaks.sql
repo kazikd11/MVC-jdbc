@@ -1,1 +1,1 @@
-DELETE FROM peaks WHERE id = ?;
+DELETE FROM peaks WHERE id = ?;;
