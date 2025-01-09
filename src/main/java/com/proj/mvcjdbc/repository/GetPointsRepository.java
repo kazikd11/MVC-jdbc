@@ -1,6 +1,8 @@
 package com.proj.mvcjdbc.repository;
 
 import com.proj.mvcjdbc.model.Peak;
+import com.proj.mvcjdbc.model.Point;
+import com.proj.mvcjdbc.model.PointTime;
 import com.proj.mvcjdbc.model.Shelter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -17,6 +19,7 @@ public class GetPointsRepository {
     private final String query1;
     private final String query2;
     private final String query3;
+    private final String query4;
 
     @Autowired
     public GetPointsRepository(JdbcTemplate jdbcTemplate) {
@@ -24,6 +27,7 @@ public class GetPointsRepository {
         this.query1 = loadQuery("/sql/select_peaks.sql");
         this.query2 = loadQuery("/sql/select_user_shelter.sql");
         this.query3 = loadQuery("/sql/select_admin_shelter.sql");
+        this.query4 = loadQuery("/sql/find_path.sql");
     }
 
     public List<Peak> getPeaks() {
@@ -57,4 +61,19 @@ public class GetPointsRepository {
                 )
         );
     }
+
+    public List<PointTime> getPath(int id1, int id2) {
+        return jdbcTemplate.query(query4, ps -> {
+            ps.setInt(1, id1);
+            ps.setInt(2, id2);
+        }, (rs, rowNum) -> {
+            if (rowNum == 1) {
+                return new PointTime(rs.getInt("point_id"),rs.getInt("total_time"));
+            }
+            else {
+                return new PointTime(rs.getInt("point_id"),0);
+            }
+        });
+    }
+
 }

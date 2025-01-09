@@ -3,9 +3,7 @@ package com.proj.mvcjdbc.controller;
 import com.proj.mvcjdbc.model.TrailPointDTO;
 import com.proj.mvcjdbc.service.TrailMapService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;

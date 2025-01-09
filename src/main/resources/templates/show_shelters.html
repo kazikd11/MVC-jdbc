@@ -3,15 +3,15 @@
     <tr>
         <th>ID</th>
         <th>Nazwa</th>
-        <th>Phone</th>
-        <th th:if="${shelters[0].internalPhone != null}">Internal Phone</th>
+        <th>Telefon</th>
+        <th th:if="${shelters[0].internalPhone != null}">Telefon wewnetrzny</th>
         <th>Email</th>
-        <th th:if="${shelters[0].owner != null}">Owner</th>
+        <th th:if="${shelters[0].owner != null}">Wlasciciel</th>
         <th>Status</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="shelter : ${shelters}" class="table-row" data-id="${data.id}">
+    <tr th:each="shelter : ${shelters}" class="table-row" th:class="'point-'+${shelter.id}">
         <td th:text="${shelter.id}"></td>
         <td th:text="${shelter.name}"></td>
         <td th:text="${shelter.phone}"></td>

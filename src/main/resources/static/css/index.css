@@ -11,13 +11,9 @@
     font-family: 'Roboto', sans-serif;
 }
 
-html, body {
-    height: 100%;
-}
 
 .main-container {
     display: flex;
-    height: 100%;
 }
 
 nav {
@@ -59,13 +55,8 @@ button:hover {
     min-width: 300px;
 }
 
-
-img {
-    max-width: 90%;
-}
-
 .resizer {
-    background: var(--secondary-color);
+    background: #c1c1c1;
     width: 3px;
     cursor: ew-resize;
     height: 100%;
@@ -80,17 +71,18 @@ img {
 .trail {
     display: flex;
     flex-direction: column;
+    margin: 10px;
     gap: 10px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid var(--primary-color);
     border-radius: 5px;
 }
 
 .line {
-    height: 2px;
+    height: 3px;
     width: 100%;
-    background-color: black;
-    margin: 5px 0;
+    background-color: var(--secondary-color);
+    margin: 2px 0;
 }
 
 .point {
@@ -106,11 +98,138 @@ table tbody tr:hover {
     cursor: pointer;
 }
 
-.highlight {
-    border: 2px solid red;
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    width: 50px;
-    height: 50px;
+.path-form {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.path-form label {
+    margin-right: 10px;
+}
+
+.path-form input {
+    margin: 5px 10px 5px 0;
+}
+
+.path {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: var(--tertiary-color);
+}
+
+.path ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.path ul li {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 3px;
+}
+
+table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+}
+
+
+tr:hover {
+    color: var(--tertiary-color);
+}
+
+table#shelters-table td, table#peaks-table td {
+    color: var(--secondary-color);
+}
+
+
+th, td {
+    font-size: 16px;
+}
+
+th {
+    font-weight: bold;
+}
+
+* {
+    transition: background-color 0.3s ease;
+}
+
+.path-container {
+    margin: 10px;
+    display: flex;
+    flex-grow: 1;
+    gap: 10px;
+    padding: 0 20px 0 20px;
+    background-color: var(--tertiary-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 8px;
+}
+
+.path-form{
+    border: 1px solid var(--primary-color);
+}
+
+.path-form h2 {
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.path-form label {
+    display: block;
+    color: var(--secondary-color);
+}
+
+.path-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    background-color: #fff;
+    color: var(--secondary-color);
+}
+
+.path-form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.path-form button:hover {
+    background-color: var(--secondary-color);
+}
+
+.path {
+    margin-top: 20px;
+    flex-grow: 1;
+    padding: 20px;
+    background-color: var(--tertiary-color);
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+    color: var(--secondary-color);
 }

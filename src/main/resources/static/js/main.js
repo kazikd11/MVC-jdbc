@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const showSheltersBtn = document.getElementById("showShelters");
     const sheltersContainer = document.getElementById("shelters-table");
     const showTrailsBtn = document.getElementById("fetch-trails-btn");
-    const rows = document.querySelectorAll('.table-row');
 
     if(showTrailsBtn){
         showTrailsBtn.addEventListener("click", async () => {
@@ -12,19 +11,19 @@ document.addEventListener('DOMContentLoaded', function () {
             const trails = await response.json();
 
             const mapContainer = document.querySelector(".map-container");
-            mapContainer.innerHTML = ""; // Clear previous content
+            mapContainer.innerHTML = "";
 
             Object.entries(trails).forEach(([trailId, points]) => {
                 const trailDiv = document.createElement("div");
                 trailDiv.className = "trail";
 
                 const trailLabel = document.createElement("h3");
-                trailLabel.textContent = `Trail ${trailId}`;
+                trailLabel.textContent = `Szlak ${trailId}`;
                 trailDiv.appendChild(trailLabel);
 
                 points.forEach((point, index) => {
                     const pointDiv = document.createElement("div");
-                    pointDiv.textContent = `Punkt ${point}`;
+                    pointDiv.textContent = `${point}`;
                     pointDiv.className = `point point-${point}`;
                     console.log(pointDiv);
 
@@ -53,7 +52,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(e => {
                     console.log(e);
                 });
+
         });
+
     }
 
     if (showSheltersBtn) {
@@ -66,26 +67,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 .catch(e => {
                     console.log(e);
                 });
+
         });
+
     }
 
-    function highlightPoint(id) {
-        document.getElementById(`point-${id}`).classList.add('highlight');
-        console.log('highlighted', id);
-    }
+    document.addEventListener('click',function(){
+        const pointElements = document.querySelectorAll("[class*='point-']");
+        console.log(pointElements);
+        pointElements.forEach(element => {
+            const pointClass = Array.from(element.classList).find(cls => cls.startsWith("point-"));
 
-    function clearHighlight() {
-        const highlightedPoints = document.querySelectorAll('.highlight');
-        highlightedPoints.forEach(point => {
-            point.remove();
-        });
-    }
+            if (pointClass) {
+                element.addEventListener("mouseover", () => {
+                    console.log(pointClass);
+                    const elementsToHighlight = document.querySelectorAll(`.${pointClass}`);
+                    elementsToHighlight.forEach(el => {
+                        el.style.backgroundColor = "lightblue";
+                    });
+                });
 
-    rows.forEach(row => {
-        row.addEventListener('mouseover', () => {
-            const pointId = row.getAttribute('data-id');
-            clearHighlight();
-            highlightPoint(pointId);
+                element.addEventListener("mouseout", () => {
+                    const elementsToUnhighlight = document.querySelectorAll(`.${pointClass}`);
+                    elementsToUnhighlight.forEach(el => {
+                        el.style.backgroundColor = "";
+                    });
+                });
+            }
         });
-    });
+    })
+
 });

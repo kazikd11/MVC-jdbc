@@ -1,0 +1,1 @@
+SELECT * FROM find_shortest_path(?, ?);

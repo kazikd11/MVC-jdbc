@@ -1,0 +1,4 @@
+<ul>
+    <li th:each="point : ${path}" th:text="${point.pointId}" th:class="'point-'+${point.pointId}"></li>
+</ul>
+<p th:text="'Łączny czas: ' + ${path[1].time/60} + ' godzin i ' + ${path[1].time%60} + ' minut'"></p>

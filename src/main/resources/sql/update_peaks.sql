@@ -1,3 +1,3 @@
 UPDATE peaks
-SET name = ?, height = ?, description = ?
+SET name = ?, height = ?
 WHERE id = ?;

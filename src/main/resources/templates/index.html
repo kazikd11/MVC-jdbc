@@ -10,14 +10,15 @@
 <body>
 <nav>
     <a href="adminPage">
-        <button>Pokaż formularz</button>
+        <button>Strona administratora</button>
     </a>
 </nav>
 <div class="main-container">
+    <section>
     <div class="data-container container">
         <nav class="show-buttons">
-            <button id="showPeaks">Pokaż szczyty</button>
-            <button id="showShelters">Pokaż schroniska</button>
+            <button id="showPeaks">Pobierz szczyty</button>
+            <button id="showShelters">Pobierz schroniska</button>
             <button id="fetch-trails-btn">Pobierz szlaki</button>
         </nav>
         <div id="peaks-table">
@@ -26,12 +27,28 @@
         </div>
 
     </div>
+        <div class = "path-container">
+            <div class="path-form">
+                <h2>Znajdz sciezke</h2>
+                <form id="find-path-form">
+                    <label for="start-point">ID punktu poczatkowego:</label>
+                    <input type="number" id="start-point" name="id1" required>
+                    <label for="end-point">ID punktu koncowego:</label>
+                    <input type="number" id="end-point" name="id2" required>
+                    <button type="submit">Szukaj</button>
+                </form>
+            </div>
+            <div class = "path"></div>
+    </section>
     <div class="resizer"></div>
     <div class="container map-container">
     </div>
 </div>
-<div id="data-container"></div>
+
+</div>
+<!--<div id="data-container"></div>-->
 <script src="/js/main.js"></script>
 <script src="/js/resizer.js"></script>
+<script src="/js/find_path.js"></script>
 </body>
 </html>
