@@ -1,3 +1,3 @@
-UPDATE peaks
-SET name = ?, height = ?
+UPDATE szczyty
+SET nazwa = ?, wysokosc = ?
 WHERE id = ?;

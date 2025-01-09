@@ -1,33 +1,33 @@
-CREATE OR REPLACE FUNCTION delete_shelter()
+CREATE OR REPLACE FUNCTION usun_schronisko()
     RETURNS TRIGGER AS $$
 BEGIN
-    DELETE FROM trail_points
-    WHERE point1_id = OLD.id OR point2_id = OLD.id;
+    DELETE FROM fragmenty_szlaku
+    WHERE punkt1_id = OLD.id OR punkt2_id = OLD.id;
 
-    DELETE FROM points WHERE id = OLD.id;
+    DELETE FROM punkty WHERE id = OLD.id;
 
     RETURN OLD;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION delete_peak()
+CREATE OR REPLACE FUNCTION usun_szczyt()
     RETURNS TRIGGER AS $$
 BEGIN
-    DELETE FROM trail_points
-    WHERE point1_id = OLD.id OR point2_id = OLD.id;
+    DELETE FROM fragmenty_szlaku
+    WHERE punkt1_id = OLD.id OR punkt2_id = OLD.id;
 
-    DELETE FROM points WHERE id = OLD.id;
+    DELETE FROM punkty WHERE id = OLD.id;
 
     RETURN OLD;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER after_shelter_delete
-    AFTER DELETE ON shelters
+CREATE TRIGGER po_usunieciu_schroniska
+    AFTER DELETE ON schroniska
     FOR EACH ROW
-EXECUTE FUNCTION delete_shelter();
+EXECUTE FUNCTION usun_schronisko();
 
-CREATE TRIGGER after_peak_delete
-    AFTER DELETE ON peaks
+CREATE TRIGGER po_usunieciu_szczytu
+    AFTER DELETE ON szczyty
     FOR EACH ROW
-EXECUTE FUNCTION delete_peak();
+EXECUTE FUNCTION usun_szczyt();

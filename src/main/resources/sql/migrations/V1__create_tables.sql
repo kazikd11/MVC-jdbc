@@ -1,33 +1,33 @@
 
-CREATE TABLE points (
+CREATE TABLE punkty (
     id SERIAL PRIMARY KEY
 );
 
-CREATE TABLE peaks (
+CREATE TABLE szczyty (
     id INT PRIMARY KEY,
-    name VARCHAR(255),
-    height INT,
-    CONSTRAINT fk_point FOREIGN KEY (id) REFERENCES points(id) ON DELETE CASCADE
+    nazwa VARCHAR(255),
+    wysokosc INT,
+    CONSTRAINT fk_punkt FOREIGN KEY (id) REFERENCES punkty(id) ON DELETE CASCADE
 );
 
-CREATE TABLE shelters (
+CREATE TABLE schroniska (
     id INT PRIMARY KEY,
-    name VARCHAR(255),
-    phone_number VARCHAR(20),
-    internal_phone_number VARCHAR(20),
+    nazwa VARCHAR(255),
+    telefon VARCHAR(20),
+    wewnetrzny_telefon VARCHAR(20),
     email VARCHAR(255),
-    owner VARCHAR(255),
+    wlasciciel VARCHAR(255),
     status BOOLEAN,
-    CONSTRAINT fk_point FOREIGN KEY (id) REFERENCES points(id) ON DELETE CASCADE
+    CONSTRAINT fk_punkt FOREIGN KEY (id) REFERENCES punkty(id) ON DELETE CASCADE
 );
 
 
-CREATE TABLE trail_points (
-    point1_id INT,
-    point2_id INT,
-    trail_id INT,
-    travel_time INT,
-    color VARCHAR(255),
-    CONSTRAINT fk_point1 FOREIGN KEY (point1_id) REFERENCES points(id),
-    CONSTRAINT fk_point2 FOREIGN KEY (point2_id) REFERENCES points(id)
+CREATE TABLE fragmenty_szlaku (
+    punkt1_id INT,
+    punkt2_id INT,
+    szlak_id INT,
+    czas INT,
+    kolor VARCHAR(255),
+    CONSTRAINT fk_punkt1 FOREIGN KEY (punkt1_id) REFERENCES punkty(id),
+    CONSTRAINT fk_punkt2 FOREIGN KEY (punkt2_id) REFERENCES punkty(id)
 );

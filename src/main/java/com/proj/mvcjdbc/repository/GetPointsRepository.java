@@ -32,7 +32,7 @@ public class GetPointsRepository {
 
     public List<Peak> getPeaks() {
         return jdbcTemplate.query(query1, (rs, rowNum) ->
-                new Peak(rs.getInt("id"), rs.getString("name"), rs.getInt("height"))
+                new Peak(rs.getInt("id"), rs.getString("nazwa"), rs.getInt("wysokosc"))
         );
     }
 
@@ -40,8 +40,8 @@ public class GetPointsRepository {
         return jdbcTemplate.query(query2, (rs, rowNum) ->
                 new Shelter(
                         rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("phone_number"),
+                        rs.getString("nazwa"),
+                        rs.getString("telefon"),
                         rs.getString("email"),
                         rs.getBoolean("status")
                 )
@@ -52,11 +52,11 @@ public class GetPointsRepository {
         return jdbcTemplate.query(query3, (rs, rowNum) ->
                 new Shelter(
                         rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("phone_number"),
-                        rs.getString("internal_phone_number"),
+                        rs.getString("nazwa"),
+                        rs.getString("telefon"),
+                        rs.getString("wewnetrzny_telefon"),
                         rs.getString("email"),
-                        rs.getString("owner"),
+                        rs.getString("wlasciciel"),
                         rs.getBoolean("status")
                 )
         );
@@ -68,10 +68,9 @@ public class GetPointsRepository {
             ps.setInt(2, id2);
         }, (rs, rowNum) -> {
             if (rowNum == 1) {
-                return new PointTime(rs.getInt("point_id"),rs.getInt("total_time"));
-            }
-            else {
-                return new PointTime(rs.getInt("point_id"),0);
+                return new PointTime(rs.getInt("punkt_id"), rs.getInt("calkowity_czas"));
+            } else {
+                return new PointTime(rs.getInt("punkt_id"), 0);
             }
         });
     }

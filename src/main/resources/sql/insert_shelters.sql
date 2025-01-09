@@ -1,2 +1,2 @@
-INSERT INTO shelters (name, phone_number, internal_phone_number, email, owner, status)
+INSERT INTO schroniska (nazwa, telefon, wewnetrzny_telefon, email, wlasciciel, status)
 VALUES (?, ?, ?, ?, ?, ?);

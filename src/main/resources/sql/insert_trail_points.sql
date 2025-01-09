@@ -1,2 +1,2 @@
-INSERT INTO trail_points (point1_id, point2_id, trail_id, travel_time, color)
+INSERT INTO fragmenty_szlaku (punkt1_id, punkt2_id, szlak_id, czas, kolor)
 VALUES (?, ?, ?, ?, ?);

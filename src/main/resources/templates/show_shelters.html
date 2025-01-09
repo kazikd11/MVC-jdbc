@@ -18,7 +18,7 @@
         <td th:if="${shelter.internalPhone != null}" th:text="${shelter.internalPhone}"></td>
         <td th:text="${shelter.email}"></td>
         <td th:if="${shelter.owner != null}" th:text="${shelter.owner}"></td>
-        <td th:text="${shelter.status ? 'Active' : 'Inactive'}"></td>
+        <td th:text="${shelter.status ? 'Otwarte' : 'Zamkniete'}"></td>
     </tr>
     </tbody>
 </table>

@@ -1,11 +1,11 @@
-CREATE OR REPLACE VIEW client_shelters_view AS
+CREATE OR REPLACE VIEW widok_schronisk_klienta AS
 SELECT id,
-       name,
+       nazwa,
        status,
        email,
-       phone_number
-FROM shelters;
+       telefon
+FROM schroniska;
 
-CREATE OR REPLACE VIEW admin_shelters_view AS
+CREATE OR REPLACE VIEW widok_schronisk_admina AS
 SELECT *
-FROM shelters;
+FROM schroniska;

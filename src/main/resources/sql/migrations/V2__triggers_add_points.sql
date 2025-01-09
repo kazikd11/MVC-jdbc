@@ -1,27 +1,27 @@
-CREATE OR REPLACE FUNCTION add_shelter() RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION dodaj_schronisko() RETURNS TRIGGER AS $$
 BEGIN
-    INSERT INTO points DEFAULT VALUES;
-    NEW.id := currval('points_id_seq');
+    INSERT INTO punkty DEFAULT VALUES;
+    NEW.id := currval('punkty_id_seq');
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE FUNCTION add_peak() RETURNS TRIGGER AS $$
+CREATE OR REPLACE FUNCTION dodaj_szczyt() RETURNS TRIGGER AS $$
 BEGIN
-    INSERT INTO points DEFAULT VALUES;
-    NEW.id := currval('points_id_seq');
+    INSERT INTO punkty DEFAULT VALUES;
+    NEW.id := currval('punkty_id_seq');
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
 
 --
 
-CREATE TRIGGER before_insert_shelter
-    BEFORE INSERT ON shelters
+CREATE TRIGGER przed_insert_schronisko
+    BEFORE INSERT ON schroniska
     FOR EACH ROW
-EXECUTE FUNCTION add_shelter();
+EXECUTE FUNCTION dodaj_schronisko();
 
-CREATE TRIGGER before_insert_peak
-    BEFORE INSERT ON peaks
+CREATE TRIGGER przed_insert_szczyt
+    BEFORE INSERT ON szczyty
     FOR EACH ROW
-EXECUTE FUNCTION add_peak();
+EXECUTE FUNCTION dodaj_szczyt();

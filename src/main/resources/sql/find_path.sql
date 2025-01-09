@@ -1,1 +1,1 @@
-SELECT * FROM find_shortest_path(?, ?);
+SELECT * FROM znajdz_najkrotsza_droge(?, ?);

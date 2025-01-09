@@ -1,1 +1,1 @@
-DELETE FROM trail_points WHERE point1_id = ? AND point2_id = ?;
+DELETE FROM fragmenty_szlaku WHERE punkt1_id = ? AND punkt2_id = ?;

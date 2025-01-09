@@ -1,3 +1,3 @@
-UPDATE shelters
-SET name = ?, phone_number = ?, internal_phone_number = ?, email = ?, owner = ?, status = ?
+UPDATE schroniska
+SET nazwa = ?, telefon = ?, wewnetrzny_telefon = ?, email = ?, wlasciciel = ?, status = ?
 WHERE id = ?;

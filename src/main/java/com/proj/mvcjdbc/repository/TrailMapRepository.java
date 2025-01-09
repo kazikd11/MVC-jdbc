@@ -22,11 +22,11 @@ public class TrailMapRepository {
 
     public List<TrailPoint> getTrails() {
         return jdbcTemplate.query(query1, (rs, rowNum) -> new TrailPoint(
-                rs.getInt("point1_id"),
-                rs.getInt("point2_id"),
-                rs.getInt("trail_id"),
-                rs.getInt("travel_time"),
-                rs.getString("color")
+                rs.getInt("punkt1_id"),
+                rs.getInt("punkt2_id"),
+                rs.getInt("szlak_id"),
+                rs.getInt("czas"),
+                rs.getString("kolor")
         ));
     }
 

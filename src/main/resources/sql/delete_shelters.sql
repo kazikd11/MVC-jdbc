@@ -1,1 +1,1 @@
-DELETE FROM shelters WHERE id = ?;
+DELETE FROM schroniska WHERE id = ?;

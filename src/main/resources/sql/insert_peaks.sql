@@ -1,2 +1,2 @@
-INSERT INTO peaks (name, height)
+INSERT INTO szczyty (nazwa, wysokosc)
 VALUES (?, ?);

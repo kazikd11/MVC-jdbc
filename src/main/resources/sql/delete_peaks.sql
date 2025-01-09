@@ -1,1 +1,1 @@
-DELETE FROM peaks WHERE id = ?;;
+DELETE FROM szczyty WHERE id = ?;

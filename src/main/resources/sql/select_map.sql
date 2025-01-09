@@ -1,8 +1,8 @@
 SELECT
-    tp.trail_id,
-    tp.point1_id,
-    tp.point2_id,
-    tp.travel_time,
-    tp.color
-FROM trail_points tp
-ORDER BY tp.trail_id, tp.point1_id;
+    tp.szlak_id,
+    tp.punkt1_id,
+    tp.punkt2_id,
+    tp.czas,
+    tp.kolor
+FROM fragmenty_szlaku tp
+ORDER BY tp.szlak_id, tp.punkt1_id;

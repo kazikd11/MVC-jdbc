@@ -1,1 +1,1 @@
-SELECT * FROM client_shelters_view;
+SELECT * FROM widok_schronisk_klienta;

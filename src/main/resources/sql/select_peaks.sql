@@ -1,1 +1,1 @@
-SELECT * FROM peaks;
+SELECT * FROM szczyty;
